@@ -1,0 +1,53 @@
+/* Add to your layout: <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet"> */
+.pg-wrap { --ink: #f4f2ff; --dim: #a7a3c4; --violet: #9a7bff; height: 700vh; background: #000; color: var(--ink); font-family: "Hanken Grotesk", "Helvetica Neue", system-ui, sans-serif; }
+.pg-stage { position: sticky; top: 0; height: 100vh; padding: 4vh 4vw; box-sizing: border-box; }
+.pg-frame { position: relative; height: 100%; overflow: hidden; border-radius: 14px; background: #000; box-shadow: 0 0 0 1px rgba(150, 120, 255, 0.14), 0 0 90px rgba(100, 60, 255, 0.28); }
+.pg-canvas, .pg-glow { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pg-glow { filter: blur(14px) saturate(1.4); opacity: 0.9; mix-blend-mode: screen; }
+
+.pg-nav { position: absolute; inset: 0 0 auto 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 18px 28px; font-size: 12px; }
+.pg-nav a { color: var(--ink); text-decoration: none; }
+.pg-nav nav { display: flex; gap: 22px; color: var(--dim); }
+.pg-logo { font-size: 15px; font-weight: 600; }
+.pg-pill { padding: 8px 16px; border-radius: 999px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.1); }
+.pg-nav a:focus-visible, .pg-btn:focus-visible, .pg-dash button:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+
+.pg-copy { position: absolute; z-index: 2; max-width: min(520px, 84%); }
+.pg-tag { margin: 0 0 14px; font-size: 11px; color: var(--dim); display: flex; align-items: center; gap: 8px; }
+.pg-tag::before { content: ""; width: 8px; height: 8px; border: 1px solid var(--violet); border-radius: 50%; }
+.pg-copy h1 { margin: 0; font-weight: 500; font-size: clamp(26px, 3.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; }
+.pg-copy h1 span { display: block; }
+.pg-body { margin: 16px 0 0; font-size: clamp(12px, 1.05vw, 14px); line-height: 1.55; color: var(--dim); max-width: 46ch; }
+.pg-cta { display: flex; gap: 10px; margin-top: 22px; }
+.pg-btn { padding: 10px 20px; border-radius: 999px; font-size: 12px; font-weight: 600; text-decoration: none; color: var(--ink); background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.12); }
+.pg-btn.on { background: var(--ink); color: #0a0714; border-color: var(--ink); }
+
+.pg-dashwrap { position: absolute; z-index: 2; left: 8%; right: 8%; top: 20%; bottom: 0; transform: translateY(105%); will-change: transform; }
+.pg-dash { display: grid; grid-template-columns: 110px 1fr; height: 100%; border-radius: 12px 12px 0 0; background: rgba(13, 12, 20, 0.96); border: 1px solid rgba(255, 255, 255, 0.08); font-size: 11px; overflow: hidden; }
+.pg-dash aside { display: flex; flex-direction: column; gap: 6px; padding: 14px 10px; border-right: 1px solid rgba(255, 255, 255, 0.06); color: var(--dim); }
+.pg-dash aside .on { padding: 6px 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.07); color: var(--ink); }
+.pg-dmain { padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.pg-dash h4 { margin: 0 0 8px; font-size: 12px; font-weight: 500; }
+.pg-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.pg-stats small, .pg-earn small { display: block; color: var(--dim); font-size: 10px; }
+.pg-stats b { font-size: clamp(13px, 1.8vw, 20px); font-weight: 500; }
+.pg-payout { display: flex; align-items: center; gap: 14px; padding: 10px 12px; border-radius: 8px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.05), rgba(154, 123, 255, 0.18), rgba(255, 255, 255, 0.05)); }
+.pg-payout b { color: var(--violet); font-weight: 500; font-size: 15px; margin-right: auto; }
+.pg-payout button { border: 0; border-radius: 6px; padding: 6px 10px; background: rgba(255, 255, 255, 0.1); color: var(--ink); font: inherit; cursor: pointer; }
+.pg-dgrid { display: grid; grid-template-columns: 2fr 1fr; gap: 10px; }
+.pg-chart, .pg-news { padding: 10px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); }
+.pg-news p { margin: 0 0 8px; color: var(--dim); }
+.bars { display: flex; align-items: flex-end; gap: 6px; height: 90px; }
+.bars i { flex: 1; border-radius: 3px 3px 0 0; background: linear-gradient(#b6a0ff, #6a4bd6); }
+.pg-earn { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pg-earn div { padding: 10px 12px; border-radius: 8px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); }
+
+@media (max-width: 720px) {
+  .pg-nav nav { display: none; }
+  .pg-copy { left: 8% !important; right: 8%; transform: none !important; text-align: left !important; }
+  .pg-dashwrap { left: 3%; right: 3%; }
+  .pg-dash { grid-template-columns: 1fr; }
+  .pg-dash aside, .pg-dgrid { display: none; }
+  .pg-stats { grid-template-columns: repeat(2, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .pg-dashwrap { will-change: auto; } }
