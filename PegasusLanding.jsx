@@ -3,7 +3,6 @@
 // Next.js: place in components/pegasus/ and render <PegasusLanding /> from app/page.jsx
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
-import "./pegasus.css";
 
 const N = 140; // fibers
 const SEG = 72; // segments per fiber
